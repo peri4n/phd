@@ -1,0 +1,15 @@
+= Spaced Seeds
+
+Spaced seeds are short patterns of match and don't-care positions.
+
+A spaced seed is said to match if all match-positions match.
+
+They were introduced in PatternHunter.
+
+== Single Seeds
+
+* It has been shown in 'Superiority and complexity of the spaced seeds', that spaced seeds lead to more statisically independent hits.
+
+== Multiple seeds
+
+* In practice, one wants to not only use a single seed but multiple different seeds. This increases sensivity while also decreasing performance.
