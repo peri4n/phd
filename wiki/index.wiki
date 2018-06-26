@@ -1,1 +1,38 @@
+= Sequence search in databases
+
+I am interested in quickly finding approximate matches of prodivded sequences in large data sets.
+
+== Definition
+
+Searching a single sequence in a given data set results in an set of alignments of the given sequence against homologous regions
+in the data set.
+
+== General outline
+
+The enable _approximate string matching_ in large data sets we try to solve the problem using _exact matching_ problem.
+
+To speed up the search, it is split into several steps. 
+
+=== Indexing
+
+The _indexing_ step sets up an index structure which allows fast access to information used that is used later on.
+The index structure that is used varies from algorithm to algothm (e.g. HashMap, [[FM-Index]] or [[Suffix array]]).
+
+=== Searching for Seeds
+
+Searching the entire database using alignment algorithms is prohibited from a performance perspective (O(n^2)).
+
+[ ] TODO: What does it mean for a query to match against the data set?
+
+In stead we search for smaller parts of the query that match the data set. These smaller parts are often called _seeds_. 
+
+Blast:
+[[Contiguous Seeds]]
+
+PatternHunter:
 [[Spaced Seeds]]
+
+=== Validation
+
+After a hit candidate has been identified, the hit is verified and aligned if succesful.
+
