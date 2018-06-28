@@ -4,3 +4,12 @@ notebooks/qgrams/.ipynb_checkpoints
 # BibTex
 *.bak
 *.sav
+*.bbl
+*.bcf
+*.blg
+
+# Latex
+*.pdf
+*.aux
+*.log
+*.run.xml

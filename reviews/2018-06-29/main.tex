@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+
+\title{A review on database sequence search}
+\author{Fabian Bull}
+\date{\today}
+
+\usepackage[style=numeric,backend=biber]{biblatex}
+
+\addbibresource{bib/bib.bib}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+Searching for similarities between a pattern and a potentially large text is a well studied field in bioinformatics and computer science in general.
+This review tries to give an overview of the last two decades of the field, beginning at the seminal work of \cite{Altschul1990} to the last break throughs of \cite{Buchfink2015}.
+While the algorithms and approaches presented here, are not constrained to biological applicationr, I stick to the biological use case to provide a complete picture of the problem domain.
+
+\section{The approach}
+\label{sec:approach}
+
+When searching for a pattern \emph{p} in a larger text \emph{T}, we often release the constraint that a query has to exactly match a text in the database.
+This problem is often called \emph{approximate string matching}. 
+Instead of searching for exact matches, a limited number of differences \emph{k} between the pattern and its occurrences in the text are allowed.
+The oldest solution \cite{Sellers1980} to the problem relies on \emph{dynamic programming} (often just called DP). 
+While this approach allows for more complex distances, its $\mathcal{O}(n^2)$ performance makes it prohibitiv for larger data sets.
+
+In todays algorithms, the goal is, to apply dynamic programming only when we already know that there is a match.
+This approach is first described in the BLAST program \cite{Altschul1990}.
+It can be used as a blue brint for all algorithms thereafter.
+
+\subsection{Indexing}
+\label{subsec:indexing}
+
+The process of indexing builds the data structres that speed-up the seeding done afterwards.
+
+\begin{itemize}
+    \item HashMaps
+    \item SuffixArrays \cite{Burkhardt1999}
+    \item FM-Index
+    \item Bidirectional FM-Index \cite{Buchfink2015}
+\end{itemize}
+
+\subsection{Seeding}
+\label{subsec:seeding}
+
+
+
+\begin{itemize}
+    \item Motivate why seeding is needed.
+    \item What is a seed?
+    \item Explain Seed and extend -> Verification
+\end{itemize}
+
+\subsubsection{Contiguous Seeds}
+\label{subsubsec:cont-seeds}
+
+\subsubsection{Spaced Seeds}
+\label{subsubsec:spaced-seeds}
+
+\begin{itemize}
+    \item Are superios \cite{Zhang2007}
+\end{itemize}
+
+\subsubsection{Goodness of a Seed}
+\label{subsubsec:goodness-seed}
+
+\subsubsection{Extensions}
+\label{subsubsec:seeds-extensions}
+
+\subsubsection{Open Questions}
+\label{subsubsec{seeds-questions}
+
+\begin{itemize}
+    \item vector seeds
+\end{itemize}
+
+
+\subsection{Verification}
+\label{subsec:verification}
+
+Once a seed matches a the text, the verification is done using DP. 
+This is because of the complex distances needed for a realistic comparison of the pattern and its match.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\section{References}
+\label{sec:references}
+
+\printbibliography
+
+
+\end{document}
